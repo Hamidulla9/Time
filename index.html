@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muborak Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigatsiya menyusi -->
+    <nav class="navbar glass">
+        <div class="logo">🌙 Muborak Portal</div>
+        <button class="music-btn">🎵 Musiqani yoqish</button>
+        <ul class="nav-links">
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#namoz-vaqti">Vaqtlar</a></li>
+            <li><a href="#namoz-ustoz">Namoz va Tahorat</a></li>
+            <li><a href="#hayit">Bayramlar</a></li>
+            <li><a href="#roza">Ro'za</a></li>
+        </ul>
+    </nav>
+
+    <!-- Asosiy qism -->
+    <main class="container">
+
+        <!-- Bosh sahifa -->
+        <section id="home" class="hero-section text-center">
+            <h1 class="title text-gold">Muborak Kunlar</h1>
+            <p>Tahorat, 5 Vaqt Namoz va Ro'za Qo'llanmasi</p>
+            <div class="current-time glass-btn" id="current-time">Soat: 00:00:00</div>
+        </section>
+
+        <!-- Namoz vaqtlari -->
+        <section id="namoz-vaqti" class="glass-panel text-center mt-20">
+            <h2 class="text-gold">🕌 Namoz va Quyosh Vaqtlari (Toshkent)</h2>
+            <p class="next-prayer-text">
+                <span id="next-prayer-name">...</span> kirishiga:
+                <span class="text-gold" id="prayer-countdown">00:00:00</span> qoldi.
+            </p>
+
+            <div class="prayer-cards">
+                <div class="card glass"><h4>Bomdod</h4><h2 id="fajr-time">00:00</h2></div>
+                <div class="card glass"><h4>Quyosh</h4><h2 id="sunrise-time">00:00</h2></div>
+                <div class="card glass"><h4>Peshin</h4><h2 id="dhuhr-time">00:00</h2></div>
+                <div class="card glass"><h4>Asr</h4><h2 id="asr-time">00:00</h2></div>
+                <div class="card glass"><h4>Shom</h4><h2 id="maghrib-time">00:00</h2></div>
+                <div class="card glass"><h4>Xufton</h4><h2 id="isha-time">00:00</h2></div>
+            </div>
+        </section>
+
+        <!-- Namoz Ustoz va Tahorat -->
+        <section id="namoz-ustoz" class="glass-panel mt-40">
+            <h2 class="text-gold text-center">✨ Tahorat va Namoz O'rganish Qo'llanmasi</h2>
+            <p class="text-center mt-10">Quyidagi tugmalardan istaganingizni bosing:</p>
+
+            <div class="namoz-tabs text-center mt-20">
+                <button class="tab-btn active-tab" onclick="showPrayerInfo('tahorat')">💧 Tahorat</button>
+                <button class="tab-btn" onclick="showPrayerInfo('bomdod')">Bomdod</button>
+                <button class="tab-btn" onclick="showPrayerInfo('peshin')">Peshin</button>
+                <button class="tab-btn" onclick="showPrayerInfo('asr')">Asr</button>
+                <button class="tab-btn" onclick="showPrayerInfo('shom')">Shom</button>
+                <button class="tab-btn" onclick="showPrayerInfo('xufton')">Xufton & Vitr</button>
+            </div>
+
+            <div class="namoz-content mt-20" id="namoz-details-box">
+                <!-- JavaScript orqali dinamik to'ldiriladi -->
+            </div>
+        </section>
+
+        <!-- Bayramlar va Ramazon Taymerlari -->
+        <section id="hayit" class="timers-section mt-40">
+            <div class="glass-panel text-center">
+                <h3 class="text-gold">🌙 Ramazon Oyi</h3>
+                <div class="timer-grid">
+                    <div><h2 id="ramazon-days">00</h2><p>Kun</p></div>
+                    <div><h2 id="ramazon-hours">00</h2><p>Soat</p></div>
+                    <div><h2 id="ramazon-mins">00</h2><p>Min</p></div>
+                    <div><h2 id="ramazon-secs">00</h2><p>Sek</p></div>
+                </div>
+            </div>
+
+            <div class="glass-panel text-center">
+                <h3 class="text-gold">🎉 Ramazon Hayiti</h3>
+                <div class="timer-grid">
+                    <div><h2 id="r-days">00</h2><p>Kun</p></div>
+                    <div><h2 id="r-hours">00</h2><p>Soat</p></div>
+                    <div><h2 id="r-mins">00</h2><p>Min</p></div>
+                    <div><h2 id="r-secs">00</h2><p>Sek</p></div>
+                </div>
+            </div>
+
+            <div class="glass-panel text-center">
+                <h3 class="text-gold">🐑 Qurbon Hayiti</h3>
+                <div class="timer-grid">
+                    <div><h2 id="q-days">00</h2><p>Kun</p></div>
+                    <div><h2 id="q-hours">00</h2><p>Soat</p></div>
+                    <div><h2 id="q-mins">00</h2><p>Min</p></div>
+                    <div><h2 id="q-secs">00</h2><p>Sek</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ro'za Taqvimi -->
+        <section id="roza" class="glass-panel text-center mt-40 mb-40">
+            <h2 class="text-gold">✨ Bugungi Ro'za Vaqtlari</h2>
+            <div class="roza-today mt-20">
+                <div>
+                    <h4>Bugungi Sana</h4>
+                    <h2 id="today-date">...</h2>
+                </div>
+                <div>
+                    <h4>Sahar (Og'iz yopish)</h4>
+                    <h2 class="text-gold" id="sahar-time">00:00</h2>
+                </div>
+                <div>
+                    <h4>Iftor (Og'iz ochish)</h4>
+                    <h2 class="text-gold" id="iftor-time">00:00</h2>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
